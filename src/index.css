@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma, system-ui, sans-serif;
+}
+
+/* --------- XP wallpaper (replace later with your image) --------- */
+body {
+  background: url("public/windowsxpwall.jpg") center/cover no-repeat fixed;
+}
+
+/* When you add your wallpaper image, change body to:
+body {
+  background: url("/xp-wallpaper.jpg") center/cover no-repeat fixed;
+}
+*/
+
+/* Desktop */
+.desktop {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Desktop icons */
+.desktop-icons {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.desktop-icon {
+  width: 80px;
+  color: white;
+  font-size: 11px;
+  text-align: center;
+  cursor: default;
+}
+
+.desktop-icon-box {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 0 auto 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+/* Taskbar */
+.taskbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+  background: #24518f;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  color: white;
+}
+
+.start-btn {
+  background: #3aa13a;
+  border: 1px solid black;
+  padding: 4px 10px;
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.taskbar-title {
+  font-size: 12px;
+}
+
+.taskbar-spacer {
+  flex: 1;
+}
+
+.taskbar-clock {
+  padding: 2px 6px;
+  background: #0a246a;
+  border: 1px solid black;
+  font-size: 12px;
+}
+
+/* System tray icons */
+.tray-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+/* Simple calculator layout */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.calc-btn {
+  background: #d4d0c8;
+  border: 1px solid #808080;
+  padding: 4px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.window-body h3 {
+  font-size: 16px;
+}
+
+/* Fullscreen overlay message for mobile portrait */
+.rotate-overlay {
+  display: none;
+}
+
+@media screen and (max-width: 900px) and (orientation: portrait) {
+  body {
+    overflow: hidden;
+  }
+
+  .desktop {
+    filter: blur(4px);
+    pointer-events: none;
+  }
+
+  .rotate-overlay {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-family: Tahoma, system-ui, sans-serif;
+    z-index: 99999;
+  }
+}
